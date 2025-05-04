@@ -1,0 +1,75 @@
+body{
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+.home, .back{
+    display: block;
+    text-align: center;
+    width:fit-content;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 100px;
+    margin: 20px;
+    margin-top: 20px;
+}
+
+h1{
+    display: inline-block;
+    font-family:'Trebuchet MS';
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+    background:linear-gradient(45deg, red, blue, purple, orange, pink, red);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: default;
+
+    animation: animate 10s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }}
+
+    body{
+        margin: 2%;
+    }
+
+    .paymenthx{
+        display: flex;
+        margin: 3%;
+        justify-content: space-between;
+        background-color: lightgray;
+        padding: 2%;
+        max-width: 400px;
+
+    }
+
+    .container{
+        margin: 2%;
+        margin-top: 20px;
+        width: 250px;
+    }
+
+    .opt1, .opt2, .opt3, .opt4{
+        border: 1px solid black;
+        margin: 2%;
+        margin-bottom: 15px;
+        font-weight: 600;
+        padding: 2%;
+        padding-left: 15px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 1px 1px black;
+    }
+
+    .opt4{
+        background-color: indianred;
+        color:white
+    }

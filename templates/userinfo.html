@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medistics – Province Selection</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/userinfo.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <header>Welcome to Medistics.</header>
+  <h1>Choose Your Testing Province</h1>
+
+  <form method="POST" action="{{ url_for('userinfo') }}">
+    <div class="main">
+      <div class="provinces">
+        <input type="radio" name="province" id="prov4" value="Balochistan">
+        <label for="prov4" class="prov">Balochistan</label>
+
+        <input type="radio" name="province" id="prov6" value="Gilgit, AJK & Jummu">
+        <label for="prov6" class="prov">Gilgit, AJK &amp; Jummu</label>
+
+        <input type="radio" name="province" id="prov5" value="Federal Capital">
+        <label for="prov5" class="prov">Federal Capital</label>
+
+        <input type="radio" name="province" id="prov3" value="KPK">
+        <label for="prov3" class="prov">KPK</label>
+
+        <input type="radio" name="province" id="prov1" value="Punjab">
+        <label for="prov1" class="prov">Punjab</label>
+
+        <input type="radio" name="province" id="prov2" value="Sindh">
+        <label for="prov2" class="prov">Sindh</label>
+      </div>
+    </div>
+
+    <button type="submit" class="divein">Continue</button>
+  </form>
+</body>
+</html>
+<!--   </div> -->   

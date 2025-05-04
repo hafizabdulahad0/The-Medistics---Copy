@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Medistics – Test Selection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/testsettings.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <h1>Test Settings</h1>
+
+  <form method="POST" action="{{ url_for('testsettings') }}">
+    <div class="Select">
+      <input type="checkbox" name="subjects" value="Biology" id="testbio" class="testbio">
+      <label for="testbio" class="teststyle">Biology</label>
+
+      <input type="checkbox" name="subjects" value="Chemistry" id="testchem" class="testchem">
+      <label for="testchem" class="teststyle">Chemistry</label>
+
+      <input type="checkbox" name="subjects" value="Physics" id="testphy" class="testphy">
+      <label for="testphy" class="teststyle">Physics</label>
+
+      <input type="checkbox" name="subjects" value="English" id="testeng" class="testeng">
+      <label for="testeng" class="teststyle">English</label>
+
+      <input type="checkbox" name="subjects" value="Logical Reasoning" id="testlr" class="testlr">
+      <label for="testlr" class="teststyle">Logical Reasoning</label>
+
+      <input type="checkbox" name="subjects" value="All" id="testall" class="testall">
+      <label for="testall" class="teststyle1">All Subjects</label>
+    </div>
+
+    <div class="mcq-dropdown" id="mcqDropdown">
+      <label>Choose number of MCQs</label>
+      <button type="button" class="dropdown-btn" id="dropdownBtn">
+        Click to select <span class="arrow"></span>
+      </button>
+      <div class="dropdown-content" id="dropdownContent">
+        <div class="dropdown-option" data-value="10">10 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="25">25 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="70">70 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="100">100 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="120">120 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="150">150 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="170">170 MCQs</div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-option" data-value="200">200 MCQs</div>
+      </div>
+    </div>
+
+    <!-- Hidden field to submit selected MCQ count -->
+    <input type="hidden" name="num_questions" id="num_questions" value="">
+
+    <div class="submit-container">
+      <button type="submit" class="submit">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    // Subjects: ensure "All" exclusivity
+    document.addEventListener("DOMContentLoaded", function () {
+      const allCb = document.getElementById("testall");
+      const cbs = document.querySelectorAll(".Select input[type=checkbox]:not(#testall)");
+      allCb.addEventListener("change", () => {
+        if (allCb.checked) cbs.forEach(cb => cb.checked = false);
+      });
+      cbs.forEach(cb => cb.addEventListener("change", () => {
+        if (cb.checked) allCb.checked = false;
+      }));
+    });
+  </script>
+
+  <script>
+    // MCQ dropdown logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdown = document.getElementById('mcqDropdown');
+      const btn = document.getElementById('dropdownBtn');
+      const opts = document.querySelectorAll('.dropdown-option');
+      const hidden = document.getElementById('num_questions');
+
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        dropdown.classList.toggle('active');
+      });
+
+      opts.forEach(opt => opt.addEventListener('click', function() {
+        opts.forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+        btn.innerHTML = this.textContent + ' <span class="arrow"></span>';
+        hidden.value = this.getAttribute('data-value');
+        dropdown.classList.remove('active');
+      }));
+
+      document.addEventListener('click', () => dropdown.classList.remove('active'));
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+          dropdown.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

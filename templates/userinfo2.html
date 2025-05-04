@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medistics – Referral Source</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/userinfo.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <header>Welcome to Medistics.</header>
+  <h1>Where Did You Hear About Us?</h1>
+
+  <form method="POST" action="{{ url_for('userinfo2') }}">
+    <div class="heardfrom">
+      <div class="heard1">
+        <input type="radio" name="heared" id="heared1" value="Facebook">
+        <label for="heared1" class="p">Facebook</label>
+
+        <input type="radio" name="heared" id="heared2" value="Instagram">
+        <label for="heared2" class="p">Instagram</label>
+
+        <input type="radio" name="heared" id="heared3" value="College">
+        <label for="heared3" class="p">Through College/Academy</label>
+      </div>
+      <div class="heard1">
+        <input type="radio" name="heared" id="heared4" value="Blogs">
+        <label for="heared4" class="p">Through Websites/Blogs</label>
+
+        <input type="radio" name="heared" id="heared5" value="Rep">
+        <label for="heared5" class="p">Through a representative</label>
+
+        <input type="radio" name="heared" id="heared6" value="Google">
+        <label for="heared6" class="p">Through Google Search</label>
+      </div>
+      <div class="heard1">
+        <input type="radio" name="heared" id="heared7" value="YouTube">
+        <label for="heared7" class="p">Through YouTube</label>
+
+        <input type="radio" name="heared" id="heared8" value="Friend">
+        <label for="heared8" class="p">Through a Friend</label>
+
+        <input type="radio" name="heared" id="heared9" value="Other">
+        <label for="heared9" class="p">Other</label>
+      </div>
+    </div>
+
+    <button type="submit" class="divein">Continue</button>
+  </form>
+</body>
+</html>

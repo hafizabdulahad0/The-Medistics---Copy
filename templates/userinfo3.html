@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medistics – Appearance Settings</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/userinfo.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <header>Welcome to Medistics.</header>
+  <h1>Configure Appearance</h1>
+
+  <form method="POST" action="{{ url_for('userinfo3') }}">
+    <div class="mode">
+      <input type="radio" name="dlmode" id="lightmode" value="Light">
+      <label for="lightmode" class="displaymode">
+        <i class='bx bx-sun bx-lg'></i> Light Mode
+      </label>
+
+      <input type="radio" name="dlmode" id="darkmode" value="Dark">
+      <label for="darkmode" class="displaymode">
+        <i class='bx bx-moon bx-lg'></i> Dark Mode
+      </label>
+    </div>
+
+    <button type="submit" class="divein">Dive into Medistics</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medistics – Choose Username</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/userinfo.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <header>Welcome to Medistics.</header>
+  <h1>Choose your Username</h1>
+
+  {% if error_type == 'empty' %}
+    <div class="error" style="color:red; text-align:center; margin:1em 0;">
+      Please enter a username.
+    </div>
+  {% endif %}
+
+  <form method="POST" action="{{ url_for('choose_username') }}">
+    <div class="chooseusername">
+      <input
+        type="text"
+        class="useruname"
+        name="username"
+        placeholder="Enter desired username"
+        value="{{ request.form.username or '' }}"
+        autofocus
+      >
+
+      <div class="error1" {% if error_type != 'taken' %}style="display:none;"{% endif %}>
+        Username is not available. Try another.
+      </div>
+      <div class="error1" {% if error_type != 'invalid' %}style="display:none;"{% endif %}>
+        Username can only contain letters, numbers, and underscore (_).
+      </div>
+      <div class="error1" {% if error_type != 'error' %}style="display:none;"{% endif %}>
+        Something went wrong. Please contact support.
+      </div>
+      <div class="unameok" {% if error_type %}style="display:none;"{% endif %}>
+        This username is available.
+      </div>
+    </div>
+
+    <div class="submitusernameclass">
+      <button type="submit" class="submitusername">Continue</button>
+    </div>
+  </form>
+</body>
+</html>

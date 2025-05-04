@@ -1,0 +1,226 @@
+a{
+    display: flex;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.Select {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* First row: 3 columns */
+    gap: 10px; /* Space between items */
+    max-width: 500px; /* Adjust width */
+    margin: auto; /* Center the grid */
+    text-align: center;
+    width: 80vw;
+}
+
+/* First row (3 items) */
+.teststyle:nth-child(2),
+.teststyle:nth-child(4),
+.teststyle:nth-child(6) {
+    grid-column: span 1;
+}
+
+/* Second row (2 items) */
+.teststyle:nth-child(8),
+.teststyle:nth-child(10) {
+    grid-column: span 1;
+}
+
+/* Third row (1 item - full width) */
+.teststyle1 {
+    grid-column: span 3; /* Makes it take full width */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* General Styles */
+.teststyle, .teststyle1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid pink;
+    border-radius: 15px;
+    padding: 15px;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 2px black;
+    cursor: pointer;
+}
+
+/* Parent Container */
+.submit-container {
+    display: flex; 
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically if needed */
+    width: 100%; /* Ensures full width */
+}
+
+
+.testcontainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.biology, .chemistry{
+    display: column;
+    padding: 10px;
+    border: 2px solid pink;
+    margin: 10px;
+}
+
+/* Submit Button */
+.submit {
+    border: 2px solid pink;
+    border-radius: 15px;
+    padding: 15px;
+    width: 60%;
+    max-width: 300px;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 2px 2px black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3 ease-in;
+}
+
+.submit:hover{
+    background-color: PINK;
+}
+
+
+
+.testbio, .testchem, .testphy, .testeng, .testlr, .testall{
+    display: none;
+}
+
+.teststyle:hover{cursor: pointer;}
+
+/* .testbio, .testchem, .testphy, .testeng, .testlr, .testall:checked + .testbio, .testchem, .testphy, .testeng, .testlr, .testall{
+    background-color: pink;
+} */
+
+#testbio:checked + label[for="testbio"],
+#testchem:checked + label[for="testchem"],
+#testphy:checked + label[for="testphy"],
+#testeng:checked + label[for="testeng"],
+#testlr:checked + label[for="testlr"],
+#testall:checked + label[for="testall"] {
+    background-color: pink;
+    color: black;
+}
+
+
+/* dropdown menu */
+
+/* Main dropdown styles */
+.mcq-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column
+    ;
+    font-family: 'Segoe UI', sans-serif;
+    width: 80vw;
+    margin: 20px auto;
+}
+
+/* Dropdown button */
+.dropdown-btn {
+    background-color: white;
+    color: black;
+    padding: 12px 20px;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.dropdown-btn:hover {
+    background-color: #F4C2C2;
+}
+
+/* Arrow icon */
+.arrow {
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: flex;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 5px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 300px; /* Fixed height for scrolling */
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* Custom scrollbar for Webkit browsers */
+.dropdown-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 8px 8px 0;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #F4C2C2;
+    border-radius: 3px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: #F4C2C2;
+}
+
+/* Show dropdown when active */
+.mcq-dropdown.active .dropdown-content {
+    display: block;
+}
+
+.mcq-dropdown.active .arrow {
+    transform: rotate(-135deg);
+}
+
+/* Dropdown options */
+.dropdown-option {
+    color: #333;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dropdown-option:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-option.selected {
+    background-color: #F4C2C2;
+    color: black;
+    font-weight: 600;
+}
+
+/* Divider between options */
+.dropdown-divider {
+    height: 1px;
+    background-color: #eee;}

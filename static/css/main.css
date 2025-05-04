@@ -1,0 +1,510 @@
+body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* _________________________________ */
+
+.mesmerizing-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps it in the background */
+    background: linear-gradient(-45deg, deeppink, #ffffff, #ffe4e1, #fff0f5);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  
+  /* __________________________________________________ */
+
+  h1{
+    text-align: center;
+  }
+
+  .h1{
+    font-weight: 900;
+    background-color: white;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 15px;
+  }
+
+  .h2{
+    background-color: yellow;
+    width: fit-content;
+    padding: 40px 2px 10px 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-top: -15px;
+    margin-left: 45px;
+    padding-top: 20px;
+  }
+  
+  .header{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    background-image: linear-gradient(to bottom, deeppink, transparent);
+    padding: 20px;
+    /* justify-content: space-between; */
+    height: 30px;
+  }
+
+  .right-class{
+    display: flex;
+    gap: 15px;
+    margin: auto 0px auto auto;
+  }
+
+  .right-item {
+    font-family: 'Impact', sans-serif;
+    font-weight: 500;
+    min-width: 70px;
+    width: auto; 
+    padding: 10px 15px;
+    text-wrap: nowrap;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+
+  .right-item:hover{
+    background-image: linear-gradient(180deg, white, transparent );
+    /* background-color: white; */
+    height: 100%;
+    color: black;
+    border-radius: 15px 15px 0px 0px;
+    width: 50px;
+
+
+  }
+
+  /* ___________________________________________ */
+
+  .mid{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin: 0px auto;
+    font-size: 60px;
+    padding: 2%;
+    border-radius: 20px;
+    color: white;
+    background-color: #000;
+    font: 900;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    stroke: 1px solid;
+    text-shadow:    -1px -1px 0 #000,
+    1px -1px 0 #000, 
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  }
+  
+  .stethcont {
+    display: flex;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    right: 20px;
+}
+
+.steth {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Above the circles */
+    filter: drop-shadow(0 0 10px rgba(157, 78, 221, 0.7));
+}
+
+.circle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.pulse-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at center,
+        #6a0dad 0%,       /* Deep purple center */
+        #5d00ff 30%,      /* Vibrant purple */
+        #9d4edd 70%,      /* Medium purple */
+        #c77dff 100%      /* Light purple edge */
+    );
+    opacity: 0;
+    transform: scale(0);
+    filter: brightness(1.2);
+    /* animation: deep-purple-pulse 4s infinite cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+/* Staggered animations */
+.pulse-circle:nth-child(1) { animation-delay: 0s; }
+.pulse-circle:nth-child(2) { animation-delay: 1s; }
+.pulse-circle:nth-child(3) { animation-delay: 2s; }
+.pulse-circle:nth-child(4) { animation-delay: 3s; }
+
+@keyframes deep-purple-pulse {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    20% {
+        opacity: 0.9;
+        transform: scale(0.6);
+    }
+    40% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    60% {
+        opacity: 0.4;
+        transform: scale(1.3);
+    }
+    80% {
+        opacity: 0.2;
+        transform: scale(1.6);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+
+
+  /* ___________________________________________ */
+
+  .h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 20px;
+
+  }
+
+  /* ________________________________________________ */
+
+  /* From Uiverse.io by codebykay101 */ 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .container .glass {
+    position: relative;
+    width: 180px;
+    height: 200px;
+    background-color: #c77dff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 10px;
+    margin: 0 -45px;
+    backdrop-filter: blur(10px);
+    transform: rotate(calc(var(--r) * 1deg));
+  }
+  
+  .container:hover .glass {
+    transform: rotate(0deg);
+    margin: 0 10px;
+  }
+  
+  .container .glass::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+  .container .glass svg {
+    font-size: 2.5em;
+    fill: #fff;
+  }
+
+  .icon{
+    color: gold;
+  }
+  
+
+  /* _______________________ */
+
+  /* From Uiverse.io by kennyotsu */ 
+.card {
+    display: flex;
+    justify-content: center;
+    margin-left: 1px auto;
+    /* color used to softly clip top and bottom of the .words container */
+    --bg-color: transparent;
+    display: block;
+    background-color: var(--bg-color);
+    padding: 5%;
+    width: fit-content;
+    align-self: center;
+    border-radius: 1.25rem;
+    text-wrap: nowrap;
+  }
+  .loader {
+    color: rgb(124, 124, 124);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 40px;
+    padding: 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 8px;
+  }
+  
+  .words {
+    overflow: hidden;
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: -25px;
+  }
+  .words::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      var(--bg-color) 10%,
+      transparent 30%,
+      transparent 70%,
+      var(--bg-color) 90%
+    );
+    z-index: 20;
+  }
+  
+  .word {
+    display: block;
+    height: 100%;
+    padding-left: 6px;
+    color: #956afa;
+    animation: spin_4991 4s infinite;
+  }
+  
+  @keyframes spin_4991 {
+    10% {
+      -webkit-transform: translateY(-102%);
+      transform: translateY(-102%);
+    }
+  
+    25% {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+  
+    35% {
+      -webkit-transform: translateY(-202%);
+      transform: translateY(-202%);
+    }
+  
+    50% {
+      -webkit-transform: translateY(-200%);
+      transform: translateY(-200%);
+    }
+  
+    60% {
+      -webkit-transform: translateY(-302%);
+      transform: translateY(-302%);
+    }
+  
+    75% {
+      -webkit-transform: translateY(-300%);
+      transform: translateY(-300%);
+    }
+  
+    85% {
+      -webkit-transform: translateY(-402%);
+      transform: translateY(-402%);
+    }
+  
+    100% {
+      -webkit-transform: translateY(-400%);
+      transform: translateY(-400%);
+    }
+  }
+
+
+
+  /* From Uiverse.io by vinodjangid07 */ 
+.Btn-Container {
+    display: flex;
+    width: 170px;
+    height: fit-content;
+    margin: 20px auto;
+    background-color: #1d2129;
+    border-radius: 40px;
+    box-shadow: 0px 5px 10px #bebebe;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+  .icon-Container {
+    width: 45px;
+    height: 45px;
+    background-color: #f59aff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid #1d2129;
+  }
+  .text {
+    width: calc(170px - 45px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1em;
+    letter-spacing: 1.2px;
+  }
+  .icon-Container svg {
+    transition-duration: 1.5s;
+  }
+  .Btn-Container:hover .icon-Container svg {
+    transition-duration: 1.5s;
+    animation: arrow 1s linear infinite;
+  }
+  @keyframes arrow {
+    0% {
+      opacity: 0;
+      margin-left: 0px;
+    }
+    100% {
+      opacity: 1;
+      margin-left: 10px;
+    }
+  }
+  
+
+  /* From Uiverse.io by JaydipPrajapati1910 */ 
+.igbutton{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+  .instagram {
+    background: transparent;
+    position: relative;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgb(255,0,0);
+    border-radius: 25px;
+    outline: none;
+    overflow: hidden;
+    color: rgb(255,0,0);
+    transition: color 0.3s 0.1s ease-out;
+    text-align: center;
+  }
+  
+  .instagram span {
+    margin: 10px;
+  }
+  
+  .instagram::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    left: -5em;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+  }
+  
+  .instagram:hover {
+    color: #fff;
+    border: 1px solid rgb(255,0,0);
+  }
+  
+  .instagram:hover::before {
+    box-shadow: inset 0 0 0 10em rgb(255, 0, 0);
+  }
+
+  /* ___________________________ */
+  
+  .pass{
+    display: flex;
+    margin: 10px auto 5px;
+    width: 90vw;
+    max-width: 500px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    border-bottom: 500px;
+  }
+
+  .pass:hover{
+    filter: blur(5px);
+    width: 550px;
+    cursor: pointer;
+  }
+
+  footer{
+    text-align: center;
+  }
+
+  .closing{
+    background-color: lightcoral;
+    width: 95vw;
+    height: 100px;
+    border-radius: 1000px 1000px 0px 0px;
+    margin-top: 100px;
+  }

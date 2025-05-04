@@ -1,0 +1,210 @@
+.mesmerizing-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps it in the background */
+  background: linear-gradient(-45deg, deeppink, #ffffff, #ffe4e1, #fff0f5);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* ___________________________________________ */
+
+.body{
+    display: flex;
+}
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .card {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background: #fff;
+    border-radius: 10px;
+    transition: all 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .input {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    appearance: none;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    z-index: 10;
+    box-shadow: 1px 1px 10px #aaaaaa,
+                -1px -1px 10px #ffffff;
+  }
+  
+  .input + .check::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d0d0d0;
+    border-radius: 50%;
+    background-color: #E8E8E8;
+  }
+  
+  .input:checked + .check::after {
+    content: '';
+    position: absolute;
+    top: 19px;
+    right: 19px;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255,0,0,0.7);
+    border-radius: 50%;
+  }
+  
+  .input[value="standart"]:checked + .check::after {
+    background-color: rgba(255,165,0,0.7);
+  }
+  
+  .input[value="premium"]:checked + .check::after {
+    background-color: rgba(0,128,0,0.7);
+  }
+  
+  .input[value="basic"]:checked {
+    border: 1.5px solid rgba(255,0,0,0.7);
+  }
+  
+  .input[value="standart"]:checked {
+    border: 1.5px solid rgba(255,165,0,0.7);
+  }
+  
+  .input[value="premium"]:checked {
+    border: 1.5px solid rgba(0,128,0,0.7);
+  }
+  
+  .label {
+    color: #323232;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .label .title {
+    margin: 15px 0 0 15px;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+  
+  .label .price {
+    margin: 20px 0 0 15px;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  
+  .label .span {
+    color: gray;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  
+  
+  /* ________________________________ */
+
+
+  .custom{
+    display: flex;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact{
+    padding:5px;
+    border-radius: 15px;
+    align-self: center;
+    margin: 5px;
+  }
+
+  .heading{
+    font-size: large;
+    font-weight: 800;
+    margin: 20px;
+  }
+
+  .details{
+    /* margin-left: 20px; */
+    border: 1px solid black;
+    max-width: 80vw;
+    justify-self: center;
+    background-image: linear-gradient(to left, white, transparent);
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  h2{
+    background-color: gold;
+    width: fit-content;
+    min-width: 200px;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 30px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    animation: fancyDrop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  @keyframes fancyDrop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) rotateX(90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+
+/* ____________________________________ */
+
+.submit{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 3px;
+  width: 200px;
+  color: white;
+  background-color: #323232;
+  height: 50px;
+  border-radius: 30px;
+  margin: 30px auto;
+}

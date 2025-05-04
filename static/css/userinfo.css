@@ -1,0 +1,417 @@
+/* username selection page */
+
+.back{
+    display: block;
+    text-align: center;
+    width:fit-content;
+    border: none;
+    margin-left: 2vw;
+    margin-top: 20px;
+    background-color: transparent;
+}
+
+.chooseusername{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.useruname{
+    display: flex;
+    width: 60%;
+    min-width: 300px;
+    max-width: 600px;
+    border: 5px solid pink;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.useruname:focus{
+    outline: none;
+    box-shadow: 0px 4px 0px 4px black;
+}
+
+.error1,
+.error2,
+.error3{
+    color: darkred;
+}
+
+.unameok{
+    color: darkgreen;
+}
+
+.submitusernameclass{
+    display: flex;
+    justify-content: center;
+    min-width: 300px;
+    margin-top: 30px;
+}
+
+.submitusername{
+    width: 300px;
+    margin: 10px;
+    gap: 10px;
+    padding: 5px;
+    background-color: pink;
+    border-radius: 30px;
+    box-shadow: 2px 2px 0px 0px ;
+}
+
+header {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 2rem 0 1rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive font size */
+    text-align: center;
+    background: linear-gradient(45deg, 
+      red, blue, purple, orange, pink, red);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    cursor: default;
+    padding: 0.5rem 1rem;
+    line-height: 1.3;
+    animation: animate 10s linear infinite;
+    
+    /* Fallback for older browsers */
+    @supports not (background-clip: text) {
+      color: #6a0dad; /* Solid purple fallback */
+      background: none;
+    }
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .responsive-header {
+      margin: 1.5rem 0;
+      font-size: clamp(1.25rem, 6vw, 1.75rem);
+      animation-duration: 8s; /* Slightly faster on mobile */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .responsive-header {
+      margin: 1rem 0;
+      font-size: clamp(1.1rem, 7vw, 1.5rem);
+      padding: 0.3rem 0.8rem;
+      line-height: 1.4;
+    }
+  }
+
+  /* _______________________________________ */
+    
+  
+  body{
+        background-color: white;
+        transition: background-color 0.3s ease;
+    }
+    h1{margin: 10px;}
+
+    .main{
+        display: flex;
+        justify-content: center; 
+        width: 100%;   
+    }
+
+    .provinces{
+        display: grid;
+        grid-template-columns:repeat(2, 1fr);
+        margin:15px;
+        max-width: 500px;
+        min-width: 200px;
+        }
+
+
+    .prov {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        padding: 5px;
+        width: auto;
+        height: 60px;
+        text-align: center;
+        gap: 10px;
+        border: 5px solid pink;
+        border-radius: 15px;
+        white-space: nowrap;
+    }
+
+    .prov:hover{
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .radio-input:checked + .prov {
+        background-color: pink;
+    }
+
+
+    .radio-input {display: none;}
+
+
+    .map{width: 50vh; height: auto;}
+
+    .contcontainer{
+
+    }
+
+    @media (max-width: 800px) {
+        .provinces {
+            display: block;
+            grid-template-columns: 1fr;
+        }
+
+        .prov{
+            padding: 0px;
+            font-size: 12px;
+            height: 30px;
+            width: auto;
+            padding: 5px;
+            border: 2px solid pink;
+            
+        }
+    
+    }
+
+
+    /* userinfo2.html */
+
+    .heardfrom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 1rem;
+        margin-bottom: 50px;
+    }
+    
+    .heard1 {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        flex: 1;
+        min-width: 250px;
+        max-width: 100%;
+    }
+    
+    .platform {
+        display: none; /* Hide default radio */
+    }
+    
+    .p {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #f9f9f9;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .p::before {
+        content: "";
+        display: inline-block;
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: 0.75rem;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    
+    .platform:checked + .p {
+        border-color: black;
+        background: pink;
+        font-weight: 900;
+    }
+    
+    .platform:checked + .p::before {
+        border-color: deeppink;
+        background: pink;
+        box-shadow: inset 0 0 0 3px white;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .heard1 {
+            min-width: 100%;
+        }
+        
+        .p {
+            padding: 0.6rem 0.8rem;
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .heardfrom {
+            gap: 0.5rem;
+        }
+        
+        .p {
+            padding: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .p::before {
+            width: 1em;
+            height: 1em;
+            margin-right: 0.5rem;
+        }
+    }
+
+/* Base Styles */
+.mode-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lmode, .dmode {
+    display: none;  
+}
+
+.mode {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.displaymode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    min-width: 120px;
+    border: 3px solid #ff9bb3;
+    border-radius: 15px;
+    color: #333;
+    font-weight: 700;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+}
+
+.displaymode i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.displaymode span {
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+.lmode:checked + .displaymode{}
+.dmode:checked + .displaymode {
+    background-color: pink;
+    border-color: #ff9bb3;
+    color: black
+}
+
+.divein {
+    display: inline-flex;
+    position: fixed;
+    bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background-color: pink;
+    color: black;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    width: auto;
+    max-width: 100%;
+}
+
+.divein:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .displaymode {
+        padding: 1rem;
+        min-width: 100px;
+    }
+    
+    .displaymode i {
+        font-size: 1.5rem;
+    }
+    
+    .displaymode span {
+        font-size: 0.9rem;
+    }
+    
+    .divein {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mode {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .displaymode {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 0.8rem 1rem;
+        gap: 0.8rem;
+    }
+    
+    .displaymode i {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+    }
+    
+    .divein {
+        width: 90%;
+        padding: 0.8rem;
+    }
+}
+body:has(#darkmode:checked) {
+    color: white;
+    background-color: black;
+    }

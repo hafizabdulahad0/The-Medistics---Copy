@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Medistics</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logoclass">
+      <img
+        src="{{ url_for('static', filename='images/useravatar.png') }}"
+        alt="User Avatar"
+        class="useravatar"
+        height="60"
+        onclick="window.location.href='{{ url_for('account') }}';"
+      />
+
+      <div>
+        <label class="main">
+          <input class="inp" checked="" type="checkbox" />
+          <div class="bar">
+            <span class="top bar-list"></span>
+            <span class="middle bar-list"></span>
+            <span class="bottom bar-list"></span>
+          </div>
+          <section class="menu-container">
+            <div class="chart">
+              <div class="statpeek">
+                <div class="peek_outercircle"></div>
+                <div class="peekstat">
+                  <div class="peeknums">
+                    You have got  <div class="t-a">{{ t_correct }}</div>
+                     out of  <div class="t-b">{{ t_total }}</div>
+                  </div>
+                  -
+                  <div class="peekperct">
+                    Career Score<div class="perc-t">{{ career_score }}</div>%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="menu-list" onclick="window.location.href='{{ url_for('account') }}';">
+              Account Dashboard
+            </div>
+            <div class="menu-list" onclick="window.location.href='{{ url_for('dlmode') }}';">
+              Display Settings
+            </div>
+            <div class="menu-list" onclick="window.location.href='{{ url_for('accsettings') }}';">
+              Account Settings
+            </div>
+            <div class="menu-list" onclick="window.location.href='{{ url_for('reportissue') }}';">
+              Help & Feedback
+            </div>
+            <div class="logout" onclick="window.location.href='{{ url_for('logout') }}';">
+              Logout
+            </div>
+          </section>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>The Medistics</h1>
+    <p>We are different.</p>
+  </main>
+
+  <div class="body1">
+    <h1>
+      Welcome <span class="username">{{ session.username }}</span> to The Medistics
+    </h1>
+    <p>We provide you with the most up-to-date MDCAT materials.</p>
+  </div>
+
+  <div class="container">
+    <div class="boxes">
+      <a href="{{ url_for('testsettings') }}" class="box1-1">
+        <div>Practice Questions</div>
+      </a>
+      <div class="box1-2">Past Papers (Coming Soon)</div>
+      <div class="box1-3">Flashcard Learning (Coming Soon)</div>
+      <div class="box1-4">Generative Test (Coming Soon)</div>
+    </div>
+  </div>
+
+  <div class="Whyus">Why should you choose us?</div>
+  <div class="gradient">
+    <div class="box2">
+      <i class='bx bxs-book-alt bx-lg'></i>
+      <p>2000+ MCQs</p>
+    </div>
+    <div class="box3">
+      <i class='bx bxs-capsule bx-lg'></i>
+      <p>Artificial Intelligence Queries</p>
+    </div>
+    <div class="box2">
+      <i class='bx bx-leaf bx-lg'></i>
+      <p>Flashcards for easy learning</p>
+    </div>
+    <div class="box3">
+      <i class='bx bxs-bar-chart-alt-2 bx-lg'></i>
+      <p>Track Your Learnings</p>
+    </div>
+  </div>
+
+  <div class="bottomtext">
+    With an experienced team, we provide you with comprehensive MDCAT prep.
+  </div>
+
+  <div class="contact">
+    <div><i class='bx bxl-facebook-circle bx-fw'></i>: www.facebook.com/medistics</div>
+    <div><i class='bx bxl-instagram bx-fw'></i>: www.instagram.com/medistics</div>
+    <div><i class='bx bxl-whatsapp bx-fw'></i>: 03xx-xxxxxxx</div>
+  </div>
+
+  <footer>
+    <div>Developed with <i class='bx bxs-heart'></i> by Team Medistics</div>
+  </footer>
+
+  <!-- Donut chart updater -->
+  <script>
+    function updateDonutChart() {
+      const percEl = document.querySelector('.perc-t');
+      let pct = parseInt(percEl.textContent) || 0;
+      pct = Math.max(0, Math.min(100, pct));
+      document.querySelector('.peek_outercircle').style.backgroundImage = `
+        radial-gradient(white 0% 30%, transparent 30% 90%, white 90%),
+        conic-gradient(purple 0% ${pct}%, white ${pct}% 100%)
+      `;
+      percEl.style.color = pct >= 75 ? 'green' : pct >= 50 ? 'orange' : 'red';
+    }
+    updateDonutChart();
+    new MutationObserver(updateDonutChart).observe(
+      document.querySelector('.perc-t'),
+      { characterData: true, subtree: true }
+    );
+  </script>
+</body>
+</html>

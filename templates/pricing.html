@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medistics Pricing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pricing.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+<body>
+  <div class="mesmerizing-bg"></div>
+
+    <h1>
+        Select your desired plan
+    </h1>
+
+    <!-- From Uiverse.io by andrew-demchenk0 --> 
+<div class="wrapper">
+    <div class="card">
+      <input class="input" type="radio" name="card" value="basic">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">BASIC</div>
+        <div class="price">
+          <span class="span">Rs</span>
+          0
+          <span class="span">/month</span>
+        </div>
+      </label>
+    </div>
+    <div class="card">
+      <input class="input" type="radio" name="card" value="standart">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">GOLD</div>
+        <div class="price">
+          <span class="span">Rs</span>
+          150
+          <span class="span">/month</span>
+        </div>
+      </label>
+    </div>
+    <div class="card">
+      <input class="input" type="radio" name="card" value="premium">
+      <span class="check"></span>
+      <label class="label">
+        <div class="title">ICONIC</div>
+        <div class="price">
+          <span class="span">Rs</span>
+          300
+          <span class="span">/month</span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="heading"> Which plan should I choosse?</div>
+
+
+  <div class="details">
+  <h2>BASIC</h2>
+  <div class="h2-det">
+    <i class='bx bx-check' style='color:#0000ff' ></i> Free access to all preloaded MCQs. <br>
+    <i class='bx bx-check' style='color:#0000ff' ></i> No limits of learnings.
+  </div>
+
+
+  <h2>GOLD</h2>
+  <div class="h2-det">
+    <i class='bx bx-check' style='color:#0000ff' ></i>Everything in BASIC. <br>
+    <i class='bx bx-check' style='color:#0000ff' ></i>Access to flash cards learning. <br>
+    <i class='bx bx-check' style='color:#0000ff' ></i>Realtime explainations of Preloaded MCQs.
+  </div>
+
+
+  <h2>ICONIC</h2>
+  <div class="h2-det">
+    <i class='bx bx-check' style='color:#0000ff' ></i> Everything in GOLD. <br>
+    <i class='bx bx-check' style='color:#0000ff' ></i> Access to generative MCQs.
+  </div>
+</div>
+    
+<div class="custom">Need customized plan?<button class="contact">Contact Us.</button></div>
+
+<button class="submit">Proceed to Pay</button>
+</body>

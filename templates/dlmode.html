@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medistics - User Info</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/userinfo.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+
+
+      <h1>
+        <button onclick="goBack()" class="back">
+            <i class='bx bx-arrow-back bx-md'></i>
+        </button>
+        
+        <script>function goBack() {
+            window.history.back();
+        }</script>
+    </h1>
+    
+
+
+<header>Welcome to Medistics</header>
+
+<body>
+    <h1>
+        Configure Medistics Appearance according to your comfort.
+    </h1>
+    <div class="mode">
+        <input type="radio" name="dlmode" id="lightmode" class="lmode">
+        <label for="lightmode" class="displaymode"><i class='bx bx-sun bx-lg'></i>Light Mode</label>
+        
+        <input type="radio" name="dlmode" id="darkmode" class="dmode">
+        <label for="darkmode" class="displaymode"><i class='bx bx-moon bx-lg'></i>Dark Mode</label>
+    </div>
+
+    <a href="{{ url_for('index') }}" button class="divein">Go to Home</button>
+
+
+</body>

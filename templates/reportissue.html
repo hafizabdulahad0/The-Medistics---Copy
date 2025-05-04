@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medistics | Reports error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reportissue.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+
+
+</head>
+<body>
+
+<h1>We apologize for what you are facing</h1>
+
+<div class="nature">What is the nature of your Issue?</div>
+
+<div class="dropdown-box">
+  <input type="checkbox" id="dropdownToggle">
+  <label for="dropdownToggle" class="dropdown-label" id="dropdownLabel">Click to select</label>
+
+  <div class="dropdown-options">
+    <div class="option"><input type="radio" name="issue" id="acc" value="Account Related"><label for="acc">Account Related</label></div>
+    <div class="option"><input type="radio" name="issue" id="payment" value="Payment & Subscription"><label for="payment">Payment & Subscription</label></div>
+    <div class="option"><input type="radio" name="issue" id="ui" value="Website/UI/Server Issue"><label for="ui">Website/UI/Server Issue</label></div>
+    <div class="option"><input type="radio" name="issue" id="question" value="A Question/Content is wrong or missing"><label for="question">A Question/Content is wrong or missing</label></div>
+    <div class="option"><input type="radio" name="issue" id="useracc" value="User Account"><label for="useracc">User Account</label></div>
+    <div class="option"><input type="radio" name="issue" id="progress" value="Progress Tracking"><label for="progress">Progress Tracking</label></div>
+    <div class="option"><input type="radio" name="issue" id="genq" value="Generative Questions"><label for="genq">Generative Questions</label></div>
+    <div class="option"><input type="radio" name="issue" id="other" value="Other"><label for="other">Other</label></div>
+
+    <div class="done-btn">
+      <label for="dropdownToggle">Done</label>
+    </div>
+  </div>
+</div>
+
+<textarea class="write_prob" placeholder="Describe your issue..." id="describeBox"></textarea>
+<div id="charError" class="error-msg"></div>
+
+<div class="submit-container">
+  <button class="submit" id="submitBtn" disabled onclick="window.location.href='thanksforreport.html';">Submit</button>
+</div>
+
+<script>
+  const radios = document.querySelectorAll('input[name="issue"]');
+  const textarea = document.getElementById('describeBox');
+  const submitBtn = document.getElementById('submitBtn');
+  const dropdownLabel = document.getElementById('dropdownLabel');
+  const charError = document.getElementById('charError');
+  
+  function getSelectedRadioValue() {
+    const selected = Array.from(radios).find(r => r.checked);
+    return selected ? selected.value : null;
+  }
+
+  function validateForm() {
+    const selectedValue = getSelectedRadioValue();
+    const textLength = textarea.value.trim().length;
+
+    if (selectedValue) dropdownLabel.innerText = selectedValue;
+
+    if (textLength > 0 && textLength < 70) {
+      charError.innerText = `Minimum 70 characters required. (${textLength}/70)`;
+      charError.classList.add('active');
+    } else {
+        charError.innerText = '';
+      charError.classList.remove('active');
+    }
+
+    if (selectedValue && textLength >= 70) {
+      submitBtn.disabled = false;
+      submitBtn.classList.add('enabled');
+    } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('enabled');
+    }
+  }
+
+  radios.forEach(radio => radio.addEventListener('change', validateForm));
+  textarea.addEventListener('input', validateForm);
+
+  // Re-check on page load
+  window.addEventListener('DOMContentLoaded', validateForm);
+</script>
+
+</body>
+</html>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 30px;
+      }
+  
+      h1 {
+        margin-bottom: 20px;
+      }
+  
+      .nature {
+        margin: 20px 0 10px;
+      }
+  
+      #dropdownToggle {
+        display: none;
+      }
+  
+      .dropdown-box {
+        width: 100%;
+        max-width: 400px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        position: relative;
+      }
+  
+      .dropdown-label {
+        display: block;
+        padding: 15px;
+        font-size: 16px;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+      }
+  
+      .dropdown-label::after {
+        content: "▼";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        pointer-events: none;
+      }
+  
+      .dropdown-options {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-top: 1px solid transparent;
+      }
+  
+      #dropdownToggle:checked ~ .dropdown-options {
+        max-height: 500px;
+        overflow-y: auto;
+        border-top: 1px solid #ddd;
+      }
+  
+      .option {
+        display: flex;
+        align-items: center;
+      }
+  
+      .option input[type="radio"] {
+        display: none;
+      }
+  
+      .option label {
+        flex: 1;
+        padding: 15px;
+        cursor: pointer;
+        display: block;
+        transition: background-color 0.2s ease;
+      }
+  
+      .option label:hover {
+        background-color: #ffe0e0;
+      }
+  
+      .option input[type="radio"]:checked + label {
+        background-color: pink;
+      }
+  
+      .done-btn {
+        position: sticky;
+        bottom: 0;
+        background: white;
+        border-top: 1px solid #ddd;
+        text-align: center;
+        padding: 10px;
+      }
+  
+      .done-btn label {
+        background-color: deeppink;
+        color: white;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+  
+      .done-btn label:hover {
+        background-color: hotpink;
+      }
+  
+      .write_prob {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        resize: vertical;
+        min-height: 80px;
+      }
+  
+      .error-msg {
+        margin-top: 8px;
+        max-width: 400px;
+        color: red;
+        font-size: 14px;
+        display: none;
+      }
+  
+      .error-msg.active {
+        display: block;
+      }
+  
+      .submit-container {
+        margin-top: 20px;
+      }
+  
+      .submit {
+        padding: 10px 30px;
+        font-size: 16px;
+        border: none;
+        background-color: deeppink;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        opacity: 0.5;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+  
+      .submit.enabled {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>

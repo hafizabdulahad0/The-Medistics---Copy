@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medistics - Testpaper</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/testpage.css') }}">
+</head>
+<body>
+    <div class="header">
+                <!-- From Uiverse.io by pathikcomp --> 
+<label class="main">
+    Medisctics | Test page
+    <input class="inp" checked="" type="checkbox" />
+    <div class="bar">
+      <span class="top bar-list"></span>
+      <span class="middle bar-list"></span>
+      <span class="bottom bar-list"></span>
+    </div>
+    <section class="menu-container">
+      <div class="menu-list"><input type="checkbox" class="darktoggle" id="darktoggle" name="darktoggle">
+      <label for="darktoggle">Switch display Mode</label>
+        </div>
+      <div class="menu-list"onclick="window.location.href='report.html';">Report Question</div>
+
+      <div class="menu-list" onclick="window.location.href='account.html';">View Account Dashboard</div>
+      <div class="exit-list" id="leaveTestBtn">Leave Test</div>
+    </section>
+  </label>
+  
+                <h1-1>Best of the Luck <div class="username">username</div></h1-1>
+
+        <h1>Test Subject</h1>
+        <h2>question</h2>
+    </div>
+
+    <div class="optioncontainer">
+        <div class="optionmain">
+            <!-- Option 1 -->
+            <input type="radio" id="opt1" class="opt1" name="options">
+            <label for="opt1" class="options">Option 1</label>
+    
+            <!-- Option 2 -->
+            <input type="radio" id="opt2" class="opt2" name="options">
+            <label for="opt2" class="options">Option 2</label>
+    
+            <!-- Option 3 -->
+            <input type="radio" id="opt3" class="opt3" name="options">
+            <label for="opt3" class="options">Option 3</label>
+    
+            <!-- Option 4 -->
+            <input type="radio" id="opt4" class="opt4" name="options">
+            <label for="opt4" class="options">Option 4</label>
+        </div>
+    </div>
+        <!-- <div class=sideimage>
+            <img src="handshake.png" alt="handshakeimage" width="300" height=300></div> -->
+    
+    </div>
+
+    <div class="qno">Question number xx/xx</div>
+    
+    <div class="explaination_heading">Explaination</div>
+    
+    <div class="expcontainer>">
+        <input type=checkbox id="showhideexp" class="showhideexp"></input>
+        <label for="showhideexp" class="showhideexp-label">Click to Show Explanation</label>
+        <div class="explaination">Explainaton will appear here</div>
+    </div>
+    
+    <div class="container">
+        <button class="Next">Next Question</button>
+    </div>
+    </body>
+
+
+    <!-- From Uiverse.io by vinodjangid07 --> 
+<div class="exit-card">
+  <p class="exit-heading">Are you sure you want to leave test?</p>
+  <p class="exit-para">
+    Your progress will be lost.
+  </p>
+  <div class="button-wrapper">
+    <button class="goback-button">Go back to test</button>
+    <button class="leave-button" onclick="window.location.href='index.html';">Leave anyways</button>
+  </div>
+  <button class="exit-button">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 162 162"
+      class="svgIconCross"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-width="17"
+        stroke="black"
+        d="M9.01074 8.98926L153.021 153"
+      ></path>
+      <path
+        stroke-linecap="round"
+        stroke-width="17"
+        stroke="black"
+        d="M9.01074 153L153.021 8.98926"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get elements
+  const leaveTestBtn = document.getElementById('leaveTestBtn');
+  const exitCard = document.querySelector('.exit-card');
+  const goBackButton = document.querySelector('.goback-button');
+  const leaveButton = document.querySelector('.leave-button');
+  const exitButton = document.querySelector('.exit-button');
+
+  // Show exit card when Leave Test is clicked
+  if (leaveTestBtn && exitCard) {
+    leaveTestBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      exitCard.style.display = 'flex';
+      
+      // Close parent dropdown if exists
+      const menuContainer = this.closest('.menu-container');
+      if (menuContainer) {
+        menuContainer.classList.remove('active');
+      }
+    });
+  }
+
+  // Hide exit card when Go Back is clicked
+  if (goBackButton && exitCard) {
+    goBackButton.addEventListener('click', function() {
+      exitCard.style.display = 'none';
+    });
+  }
+
+  // Handle Leave Anyway button
+  if (leaveButton) {
+    leaveButton.addEventListener('click', function() {
+      // Add your leave test logic here
+      console.log('User chose to leave the test');
+      // Example redirect:
+      // window.location.href = '/dashboard';
+      
+      // Hide the exit card
+      if (exitCard) {
+        exitCard.style.display = 'none';
+      }
+    });
+  }
+
+  // Handle X (exit) button
+  if (exitButton && exitCard) {
+    exitButton.addEventListener('click', function() {
+      exitCard.style.display = 'none';
+    });
+  }
+
+  // Optional: Close when clicking outside the card
+  document.addEventListener('click', function(e) {
+    if (exitCard && exitCard.style.display === 'flex' && 
+        !exitCard.contains(e.target) && 
+        e.target !== leaveTestBtn) {
+      exitCard.style.display = 'none';
+    }
+  });
+
+  // Optional: Close with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && exitCard && exitCard.style.display === 'flex') {
+      exitCard.style.display = 'none';
+    }
+  });
+});
+
+</script>

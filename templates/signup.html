@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medistics Signup</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Signup for Medistics</h1>
+
+    {% if error %}
+      <div class="error" style="color:red; text-align:center; margin-bottom:1em;">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('signup') }}">
+      <div class="SignUp">
+        <div class="box">
+          <input
+            class="box1"
+            type="text"
+            name="fullname"
+            placeholder="Type Your Fullname"
+            value="{{ request.form.fullname or '' }}"
+            required
+          >
+        </div>
+        <div class="box">
+          <input
+            class="box1"
+            type="email"
+            name="usermail"
+            placeholder="Email Address"
+            value="{{ request.form.usermail or '' }}"
+            required
+          >
+        </div>
+        <div class="box">
+          <input
+            class="box1"
+            type="password"
+            name="user"
+            placeholder="Enter your Password"
+            required
+          >
+        </div>
+      </div>
+
+      <button type="submit" class="submitbtn">Submit</button>
+    </form>
+
+    <div class="noacc">
+      Already have an account?
+      <button
+        id="createAccountBtn"
+        class="loginbtn"
+        onclick="window.location.href='{{ url_for('login') }}';"
+      >
+        Login
+      </button>
+    </div>
+
+    <div class="body3">
+      Or continue with
+      <div class="thirdpartybuttons">
+        <button class="google">
+          <box-icon type='logo' name='google' color="#ffffff"></box-icon>
+        </button>
+        <button class="facebook">
+          <box-icon name='facebook-circle' type='logo' color="#ffffff"></box-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

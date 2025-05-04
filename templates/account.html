@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Dashboard</title>
+
+  <!-- Account CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!-- Boxicons CSS & JS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <div class="home">
+    <a href="{{ url_for('index') }}"><i class='bx bx-home-alt'></i></a>
+  </div>
+  <h1>Account Dashboard</h1>
+
+  <div class="userinfo">
+    <div class="avatar">
+      <img src="{{ url_for('static', filename='images/useravatar.png') }}" alt="User Avatar">
+    </div>
+    <div class="edit">
+      <i class='bx bx-pencil'></i>
+    </div>
+    <div class="name">{{ session.get('username', 'User') }}</div>
+  </div>
+
+  <div class="container">
+    <div class="performance">Your Performance Roundup</div>
+
+    <!-- Biology -->
+    <div class="subj">Biology
+      <div class="biochart">
+        <div class="biobar"></div>
+        <div class="perc-bio">{{ bio_percent }}%</div>
+      </div>
+      <div class="calc">
+        <div class="bio-a">{{ user.bio_correct }}</div> out of <div class="bio-b">{{ user.bio_total }}</div>
+      </div>
+    </div>
+
+    <!-- Chemistry -->
+    <div class="subj">Chemistry
+      <div class="chemchart">
+        <div class="chembar"></div>
+        <div class="perc-chem">{{ chem_percent }}%</div>
+      </div>
+      <div class="calc">
+        <div class="chem-a">{{ user.chem_correct }}</div> out of <div class="chem-b">{{ user.chem_total }}</div>
+      </div>
+    </div>
+
+    <!-- Physics -->
+    <div class="subj">Physics
+      <div class="phychart">
+        <div class="phybar"></div>
+        <div class="perc-phy">{{ phy_percent }}%</div>
+      </div>
+      <div class="calc">
+        <div class="phy-a">{{ user.phy_correct }}</div> out of <div class="phy-b">{{ user.phy_total }}</div>
+      </div>
+    </div>
+
+    <!-- English -->
+    <div class="subj">English
+      <div class="engchart">
+        <div class="engbar"></div>
+        <div class="perc-eng">{{ eng_percent }}%</div>
+      </div>
+      <div class="calc">
+        <div class="eng-a">{{ user.eng_correct }}</div> out of <div class="eng-b">{{ user.eng_total }}</div>
+      </div>
+    </div>
+
+    <!-- Logical Reasoning -->
+    <div class="subj">Logical Reasoning
+      <div class="lrchart">
+        <div class="lrbar"></div>
+        <div class="perc-lr">{{ lr_percent }}%</div>
+      </div>
+      <div class="calc">
+        <div class="lr-a">{{ user.lr_correct }}</div> out of <div class="lr-b">{{ user.lr_total }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total Performance -->
+  <div class="total">Total Performance
+    <div class="tchart">
+      <div class="tbar"></div>
+      <div class="perc-t">{{ total_percent }}%</div>
+    </div>
+    <div class="calc">
+      <div class="t-a">{{ total_correct }}</div> out of <div class="t-b">{{ total_qs }}</div><br>
+    </div>
+    <div class="remarks">Compliment is Loading...</div>
+  </div>
+
+  <div class="settings">
+    <div class="sett_element" onclick="window.location.href='{{ url_for('change_password') }}';">
+      Change Password
+    </div>
+    <div class="sett_element" onclick="window.location.href='{{ url_for('dlmode') }}';">
+      Display Settings
+    </div>
+    <div class="sett_element" onclick="window.location.href='{{ url_for('reportissue') }}';">
+      Report a Problem
+    </div>
+    <div class="sett_element" onclick="window.location.href='{{ url_for('logout') }}';">
+      <div class="logout"><i class='bx bx-log-out bx-fw'></i>Log Out</div>
+    </div>
+  </div>
+
+  <!-- Percentage calculation script -->
+  <script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+</body>
+</html>

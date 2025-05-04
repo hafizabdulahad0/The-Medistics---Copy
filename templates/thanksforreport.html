@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medistics | Reports error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reportissue.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+
+<body>
+    <h1>Thank you for reporting us.</h1>
+    <h2>We will contact you shortly through your Email-provided.</h2>
+    <div class="mesmerizing-bg"></div>
+    <button class="homebutton" onclick="window.location.href='index.html';">Go back to Medistics Home!</button>
+</body>
+
+<style>
+    .mesmerizing-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps it in the background */
+  background: linear-gradient(-45deg, deeppink, #ffffff, #ffe4e1, #fff0f5);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+h1{
+    background-color: purple;
+    color: white;
+    padding: 20px;
+    border-radius: 30px;
+    width: fit-content;
+    width: 80%;
+    text-align: center;
+    border: 4px solid white;
+    margin: 30vh auto 20vh auto;
+}
+
+h2{
+    text-align: center;
+}
+
+.homebutton{
+    display: flex;
+    background-color: black;
+    padding: 20px;
+    color: white;
+    border-radius: 30px;
+    margin: 0px auto;
+    cursor: pointer;
+    box-shadow: 0px 0px 1px 1px white;
+}
+
+
+
+</style>

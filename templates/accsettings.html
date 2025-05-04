@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medistics Account Settings</title>
+
+  <!-- accsettings stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/accsettings.css') }}">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/boxicons.js') }}"></script>
+</head>
+<body>
+  <div class="home">
+    <a href="{{ url_for('index') }}"><i class='bx bx-home-alt'></i></a>
+  </div>
+
+  <h1>
+    You have been using Medistics since <span class="days">{{ days }}</span> days
+  </h1>
+
+  <h2>Your Past Payment History:</h2>
+  {% if payments %}
+    <div class="paymenthx">
+      {% for p in payments %}
+        <div class="payment-row">
+          <div>{{ loop.index }}.</div>
+          <div>{{ p.plan }}</div>
+          <div>{{ p.payment_date }}</div>
+          <div>{{ p.status }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No payment records found.</p>
+  {% endif %}
+
+  <div class="container">
+    <div class="opt1" onclick="window.location.href='{{ url_for('cancel_subscription') }}';">
+      Cancel Subscription
+    </div>
+    <div class="opt2" onclick="window.location.href='{{ url_for('reportissue') }}';">
+      File a Dispute
+    </div>
+    <div class="opt3" onclick="window.location.href='{{ url_for('logout') }}';">
+      Logout
+    </div>
+    <div class="opt4" onclick="window.location.href='{{ url_for('delete_account') }}';">
+      Request Account Deletion
+    </div>
+  </div>
+</body>
+</html>
